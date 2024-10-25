@@ -1,17 +1,17 @@
 import React from 'react'
 
-const SaloonWomen = () => {
+const CleaningPest = () => {
   const cards = [
-    { imageUrl: '/waxing.webp', title: 'waxing', label: 'New' },
-    { imageUrl: '/cleaning.webp', title: 'cleanup', label: 'Exclusive' },
-    { imageUrl: '/manicure.webp', title: 'Manicure', label: 'Sale' },
-    { imageUrl: '/haircare.webp', title: 'Hair Care', label: 'Popular' },
-    { imageUrl: '/facewaxing.webp', title: 'Threading & Face Waxing', label: 'Trending' }
+    { imageUrl: '/image.webp', title: 'enter title' },
+    { imageUrl: '/image.webp', title: 'enter title' },
+    { imageUrl: '/image.webp', title: 'enter title' },
+    { imageUrl: '/image.webp', title: 'enter title' },
+    
   ]
 
   return (
     <div className="container mx-auto px-4 py-12">
-        <h1 className='font-semibold text-4xl mb-9'>Saloon for Women</h1>
+        <h1 className='font-semibold text-4xl mb-9'>Cleaning & pest control</h1>
       <div className="flex flex-wrap justify-between">
         {cards.map((card, index) => (
           <div key={index} className="w-full md:w-1/5 p-2">
@@ -29,4 +29,4 @@ const SaloonWomen = () => {
   )
 }
 
-export default SaloonWomen
+export default CleaningPest
