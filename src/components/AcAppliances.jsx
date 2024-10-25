@@ -3,42 +3,32 @@ import { ChevronRight, ChevronLeft, Star, IndianRupee } from "lucide-react";
 
 const products = [
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Ac Repair & Services",
+    image: "/ac-app-1.jpeg",
+    
     isNew: true,
   },
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Washing Machine Repair",
+    image: "/ac-app-2.jpeg",
+    
   },
   {
-    title: " ",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Gryser Repair & Services ",
+    image: "/ac-app-3.jpeg",
+    
   },
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Water Purifier Repair & Services",
+    image: "/ac-app-4.jpeg",
+    
   },
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Television Repair",
+    image: "/ac-app-5.jpeg",
+    
   },
-  {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
-  },
+ 
  
 ];
 
@@ -85,14 +75,7 @@ export default function AcAppliances() {
                 )} */}
               </div>
               <h3 className="mt-2 text-sm font-semibold">{product.title}</h3>
-              <p className="text-sm font-semibold flex items-center space-x-1">
-                <Star size={15} />
-                {product.rating}
-              </p>
-              <p className="text-sm font-semibold flex items-center space-x-1">
-                <IndianRupee size={15} />
-                {product.price}
-              </p>
+              
             </div>
           ))}
         </div>

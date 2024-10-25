@@ -2,9 +2,9 @@ import React from "react";
 
 const MasageForMen = () => {
   const cards = [
-    { imageUrl: "/image.webp", title: "Enter title" },
-    { imageUrl: "/image.webp", title: "Enter title" },
-    { imageUrl: "/image.webp", title: "Enter title" },
+    { imageUrl: "/m-s-1.jpeg", title: "Pain relief" },
+    { imageUrl: "/m-s-2.jpeg", title: "Stress relief" },
+    { imageUrl: "/m-s-3.jpeg", title: "Post workout" },
   ];
 
   return (
