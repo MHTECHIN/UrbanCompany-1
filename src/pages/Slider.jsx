@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
     id: 1,
-    image: '/nativeRO.webp',
+    image: "/nativeRO.webp",
   },
   {
     id: 2,
-    image: '/shine.webp',
+    image: "/shine.webp",
   },
   {
     id: 3,
-    image: '/elevate.webp',
+    image: "/elevate.webp",
   },
   {
     id: 4,
-    image: '/saveonelectric.webp',
+    image: "/saveonelectric.webp",
   },
   {
     id: 5,
-    image: '/elevatewedding.webp',
+    image: "/elevatewedding.webp",
   },
   {
     id: 6,
-    image: '/relaxathome.webp',
+    image: "/relaxathome.webp",
   },
   {
     id: 7,
-    image: '/experthaircut.webp',
+    image: "/experthaircut.webp",
   },
   {
     id: 8,
-    image: '/homerepairs.webp',
+    image: "/homerepairs.webp",
   },
 ];
 
@@ -53,16 +53,16 @@ const ImageSlider = () => {
   };
 
   return (
-    <div className="relative w-full max-w-6xl m-auto  overflow-hidden">
+    <div className="relative mt-28 w-full max-w-6xl m-auto  overflow-hidden">
       <div
         className="flex transition-transform duration-500"
-        style={{ transform: `translateX(-${(currentSlide / slidesToShow) * 90}%)` }}
-      >
+        style={{
+          transform: `translateX(-${(currentSlide / slidesToShow) * 90}%)`,
+        }}>
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className="min-w-[calc(100%/4)]  h-64 sm:h-72 lg:h-96 flex-shrink-0 p-2"
-          >
+            className="min-w-[calc(100%/4)]  h-64 sm:h-72 lg:h-96 flex-shrink-0 p-2">
             <img
               src={slide.image}
               alt={`Slide ${slide.id}`}
@@ -75,14 +75,12 @@ const ImageSlider = () => {
       {/* Navigation Buttons */}
       <button
         className="absolute left-4 top-1/3 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-        onClick={handlePrevSlide}
-      >
+        onClick={handlePrevSlide}>
         <ChevronLeft size={24} />
       </button>
       <button
         className="absolute right-4 top-1/3 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-        onClick={handleNextSlide}
-      >
+        onClick={handleNextSlide}>
         <ChevronRight size={24} />
       </button>
     </div>

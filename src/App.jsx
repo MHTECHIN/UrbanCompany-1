@@ -5,16 +5,21 @@ import Slider from './pages/Slider'
 import Noteworthy from './pages/Noteworthy'
 import BookedService from './pages/BookedServices'
 
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 const App = () => {
   return (
     <>
-    <Navbar />
-    <Home />
-    <Slider />
-    <Noteworthy />
-    <BookedService />
-    </>
-  )
-}
 
-export default App
+
+      <Navbar />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+};
+
+export default App;
