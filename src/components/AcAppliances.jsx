@@ -3,57 +3,46 @@ import { ChevronRight, ChevronLeft, Star, IndianRupee } from "lucide-react";
 
 const products = [
   {
-    title: "Sofa Cleaning",
-    image: "/sofacleaning.webp",
-    rating: "4.86(460k)",
-    price: "549",
+    title: "",
+    image: "",
+    rating: "",
+    price: "",
     isNew: true,
   },
   {
-    title: "Haircut for men",
-    image: "/menhaircut.webp",
-    rating: "4.89(499k)",
-    price: "259",
+    title: "",
+    image: "",
+    rating: "",
+    price: "",
   },
   {
-    title: "Sofa & cushions cleaning ",
-    image: "/sofacushion.webp",
-    rating: "4.83(10k)",
-    price: "639",
+    title: " ",
+    image: "",
+    rating: "",
+    price: "",
   },
   {
-    title: "Full automatic washing machine check-up(top load)",
-    image: "/fullauto.webp",
-    rating: "4.82(270k)",
-    price: "160",
+    title: "",
+    image: "",
+    rating: "",
+    price: "",
   },
   {
-    title: "TV repair",
-    image: "/tvrepair.webp",
-    rating: "4.81(144k)",
-    price: "249",
+    title: "",
+    image: "",
+    rating: "",
+    price: "",
   },
   {
-    title: "Swedish stress relief massage",
-    image: "/stress.webp",
-    rating: "4.84(150k)",
-    price: "1,299",
+    title: "",
+    image: "",
+    rating: "",
+    price: "",
   },
-  {
-    title: "Rooms/walls painting",
-    image: "/roomswall.webp",
-    rating: "4.82(21k)",
-    price: "49",
-  },
-  {
-    title: "Drill & hang(wall decor)",
-    image: "/drill.webp",
-    rating: "4.87(90k)",
-    price: "129",
-  },
+ 
 ];
 
-export default function BookedService() {
+export default function AcAppliances() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const visibleCount = 4; // Number of products visible at a time
 
@@ -78,7 +67,7 @@ export default function BookedService() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6">Most booked services</h2>
+      <h2 className="text-3xl font-bold mb-6">AC & Appliances</h2>
       <div className="relative">
         <div className="flex space-x-4 overflow-hidden">
           {visibleProducts.map((product, index) => (

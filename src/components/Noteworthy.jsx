@@ -72,7 +72,7 @@ export default function Noteworthy() {
                   </span>
                 )}
               </div>
-              <h3 className="mt-2 text-lg font-semibold">{product.title}</h3>
+              <h3 className="mt-2 text-sm font-semibold">{product.title}</h3>
             </div>
           ))}
         </div>
