@@ -3,42 +3,37 @@ import { ChevronRight, ChevronLeft, Star, IndianRupee } from "lucide-react";
 
 const products = [
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Plumber visit",
+    image: "/q-h-1.jpeg",
+    rating: "4.79 (62K)",
+    price: "49",
     isNew: true,
   },
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Tap repair",
+    image: "/q-h-2.jpeg",
+    rating: "4.84 (73K)",
+    price: "49",
   },
   {
-    title: " ",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Carpenter visit",
+    image: "/q-h-3.jpeg",
+    rating: "4.71 (46K)",
+    price: "49",
   },
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Electrician visit",
+    image: "/q-h-4.jpeg",
+    rating: "4.80 (53K)",
+    price: "49",
   },
   {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
+    title: "Fan repair (celing/wall/exhaust)",
+    image: "/q-h-5.jpeg",
+    rating: "4.81 (52K)",
+    price: "119",
   },
-  {
-    title: "",
-    image: "",
-    rating: "",
-    price: "",
-  },
+  
  
 ];
 
