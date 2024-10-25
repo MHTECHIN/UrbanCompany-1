@@ -44,8 +44,8 @@ export default function HomeServices() {
   return (
     <>
       <div className=" w-full flex flex-col items-center">
-        <div className=" w-10/12 flex justify-between mt-10">
-          <div className="w-5/12 ">
+        <div className=" w-[1232px] flex justify-between mt-10">
+          <div className="w-[514px] ">
             <h1 className="text-4xl mb-10 text-start font-semibold">
               Home Services at your doorstep
             </h1>
@@ -53,7 +53,7 @@ export default function HomeServices() {
               <lable className="font-medium w-full text-start text-xl">
                 What are you looking for?
               </lable>
-              <div className="w-full flex gap-3 flex-wrap my-5">
+              <div className="w-full flex gap-3 justify-center items-center flex-wrap my-5">
                 {services.map((service, index) => (
                   <ServiceCard
                     key={index}
@@ -89,7 +89,7 @@ export default function HomeServices() {
               </div>
             </div>
           </div>
-          <div className="w-5/12">
+          <div className="w-[616px]">
             <img src="/urbancompany.webp"></img>
           </div>
         </div>
