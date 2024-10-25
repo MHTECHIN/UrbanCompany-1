@@ -1,17 +1,16 @@
-import React from "react";
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from 'react'
+import Home from './pages/Home'
+import Navbar from './pages/Navbar'
+import Slider from './pages/Slider'
+import Noteworthy from './pages/Noteworthy'
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+    <Navbar />
+    {/* <Home /> */}
+    <Slider />
+    <Noteworthy />
     </>
   );
 };
