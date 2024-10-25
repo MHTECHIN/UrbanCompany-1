@@ -1,41 +1,55 @@
-import React, { useState } from 'react';
-import { ChevronRight, ChevronLeft, Star } from 'lucide-react';
+import React, { useState } from "react";
+import { ChevronRight, ChevronLeft, Star, IndianRupee } from "lucide-react";
 
 const products = [
   {
     title: "Sofa Cleaning",
-    image: "/diwali.webp",
-    rating:"4.86(460k)",
-    price:"549",
-    isNew: true
+    image: "/sofacleaning.webp",
+    rating: "4.86(460k)",
+    price: "549",
+    isNew: true,
   },
   {
     title: "Haircut for men",
-    image: "/wall.webp"
+    image: "/menhaircut.webp",
+    rating: "4.89(499k)",
+    price: "259",
   },
   {
     title: "Sofa & cushions cleaning ",
-    image: "/purifier.webp"
+    image: "/sofacushion.webp",
+    rating: "4.83(10k)",
+    price: "639",
   },
   {
     title: "Full automatic washing machine check-up(top load)",
-    image: "/smartlock.webp"
+    image: "/fullauto.webp",
+    rating: "4.82(270k)",
+    price: "160",
   },
   {
     title: "TV repair",
-    image: "/Fullhome.webp"
+    image: "/tvrepair.webp",
+    rating: "4.81(144k)",
+    price: "249",
   },
   {
     title: "Swedish stress relief massage",
-    image: "/spa.webp"
+    image: "/stress.webp",
+    rating: "4.84(150k)",
+    price: "1,299",
   },
   {
     title: "Rooms/walls painting",
-    image: "/hairstudio.webp"
+    image: "/roomswall.webp",
+    rating: "4.82(21k)",
+    price: "49",
   },
   {
     title: "Drill & hang(wall decor)",
-    image: "/acrepair.webp"
+    image: "/drill.webp",
+    rating: "4.87(90k)",
+    price: "129",
   },
 ];
 
@@ -45,37 +59,51 @@ export default function BookedService() {
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex + visibleCount < products.length ? prevIndex + visibleCount : prevIndex
+      prevIndex + visibleCount < products.length
+        ? prevIndex + visibleCount
+        : prevIndex
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - visibleCount >= 0 ? prevIndex - visibleCount : 0));
+    setCurrentIndex((prevIndex) =>
+      prevIndex - visibleCount >= 0 ? prevIndex - visibleCount : 0
+    );
   };
 
-  const visibleProducts = products.slice(currentIndex, currentIndex + visibleCount);
+  const visibleProducts = products.slice(
+    currentIndex,
+    currentIndex + visibleCount
+  );
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6">New and noteworthy</h2>
+      <h2 className="text-3xl font-bold mb-6">Most booked services</h2>
       <div className="relative">
         <div className="flex space-x-4 overflow-hidden">
           {visibleProducts.map((product, index) => (
             <div key={index} className="flex-shrink-0 w-1/4">
               <div className="relative rounded-lg overflow-hidden">
-                <img 
-                  src={product.image} 
-                  alt={product.title} 
+                <img
+                  src={product.image}
+                  alt={product.title}
                   className="w-full h-48 object-cover"
                 />
-                {product.isNew && (
+                {/* {product.isNew && (
                   <span className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
                     NEW
                   </span>
-                )}
+                )} */}
               </div>
-              <h3 className="mt-2 text-lg font-semibold">{product.title}</h3>
-              <p className="mt-2 text-lg font-semibold flex"><Star />{product.description}</p>
+              <h3 className="mt-2 text-sm font-semibold">{product.title}</h3>
+              <p className="text-sm font-semibold flex items-center space-x-1">
+                <Star size={15} />
+                {product.rating}
+              </p>
+              <p className="text-sm font-semibold flex items-center space-x-1">
+                <IndianRupee size={15} />
+                {product.price}
+              </p>
             </div>
           ))}
         </div>
