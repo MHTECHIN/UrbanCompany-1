@@ -5,6 +5,8 @@ const products = [
   {
     title: "Sofa Cleaning",
     image: "/diwali.webp",
+    rating:"4.86(460k)",
+    price:"549",
     isNew: true
   },
   {
@@ -73,7 +75,7 @@ export default function BookedService() {
                 )}
               </div>
               <h3 className="mt-2 text-lg font-semibold">{product.title}</h3>
-              <h3 className="mt-2 text-lg font-semibold"><Star />{product.title}</h3>
+              <p className="mt-2 text-lg font-semibold flex"><Star />{product.description}</p>
             </div>
           ))}
         </div>
