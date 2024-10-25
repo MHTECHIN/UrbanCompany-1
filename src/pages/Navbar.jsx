@@ -25,7 +25,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="border-b relative">
+    <header className="border-b sticky top-0 z-50 bg-white">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-8">
           <img src="/logo.webp" alt="Urban Company Logo" width={100} height={100} />
