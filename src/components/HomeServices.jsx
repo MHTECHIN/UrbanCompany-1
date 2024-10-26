@@ -43,54 +43,56 @@ export default function HomeServices() {
 
   return (
     <>
-      <div className=" w-full flex flex-col items-center">
-        <div className=" w-[1232px] flex justify-between mt-10">
-          <div className="w-[514px] ">
-            <h1 className="text-4xl mb-10 text-start font-semibold">
-              Home Services at your doorstep
-            </h1>
-            <div className="w-fit p-6 flex justify-center items-center flex-col text-gray-600 border-[1px] my-10 border-solid rounded-md border-[#e3e3e3]">
-              <lable className="font-medium w-full text-start text-xl">
-                What are you looking for?
-              </lable>
-              <div className="w-full flex gap-3 justify-center items-center flex-wrap my-5">
-                {services.map((service, index) => (
-                  <ServiceCard
-                    key={index}
-                    serviceName={service.serviceName}
-                    serviceIcon={service.serviceIcon}
-                  />
-                ))}
+      <div className="flex flex-col items-center">
+        <div className="w-[1232px] max-xl:w-[1010px] max-lg:w-full max-lg:px-4 max-lg:mx-auto mt-10">
+          <div className="flex justify-between">
+            <div className="w-[514px] max-xl:w-[480px] max-lg:w-[514px] max-lg:mx-auto">
+              <h1 className="mb-10 text-4xl font-semibold text-start">
+                Home Services at your doorstep
+              </h1>
+              <div className="w-fit p-6 flex justify-center items-center flex-col text-gray-600 border-[1px] my-10 border-solid rounded-md border-[#e3e3e3]">
+                <label className="w-full text-xl font-medium text-start">
+                  What are you looking for?
+                </label>
+                <div className="flex flex-wrap items-center justify-center w-full gap-3 my-5">
+                  {services.map((service, index) => (
+                    <ServiceCard
+                      key={index}
+                      serviceName={service.serviceName}
+                      serviceIcon={service.serviceIcon}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="h-20 w-full flex">
-              <div className=" h-full w-1/2 flex items-center">
-                <div className="flex gap-3">
-                  <img src="/star.webp" className="h-12"></img>
-                  <div className="h-full flex flex-col gap-1">
-                    <label className=" text-2xl font-medium">4.8</label>
-                    <lable className="text-sm text-gray-700">
-                      Service Rating
-                    </lable>
+              <div className="flex w-full h-20">
+                <div className="flex items-center w-1/2 h-full">
+                  <div className="flex gap-3">
+                    <img src="/star.webp" className="h-12"></img>
+                    <div className="flex flex-col h-full gap-1">
+                      <label className="text-2xl font-medium ">4.8</label>
+                      <label className="text-sm text-gray-700">
+                        Service Rating
+                      </label>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className=" h-full w-1/2 flex items-center">
-                <div className="flex gap-3">
-                  <img src="/group.webp" className="h-12"></img>
-                  <div className="h-full flex flex-col gap-1">
-                    <label className=" text-2xl font-medium">1.2M+</label>
-                    <lable className="text-sm text-gray-700">
-                      Customers Globally
-                    </lable>
+                <div className="flex items-center w-1/2 h-full">
+                  <div className="flex gap-3">
+                    <img src="/group.webp" className="h-12"></img>
+                    <div className="flex flex-col h-full gap-1">
+                      <label className="text-2xl font-medium ">1.2M+</label>
+                      <label className="text-sm text-gray-700">
+                        Customers Globally
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="w-[616px]">
-            <img src="/urbancompany.webp"></img>
+            <div className="w-[616px] max-xl:w-[500px] max-xl:mt-16 max-lg:hidden">
+              <img src="/urbancompany.webp"></img>
+            </div>
           </div>
         </div>
       </div>
