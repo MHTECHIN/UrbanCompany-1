@@ -36,14 +36,14 @@ const TitleImageCard = ({ title, products }) => {
   }, []);
 
   return (
-    <div className="container relative w-11/12 px-4 py-12 mx-auto overflow-hidden">
+    <div className="container relative w-11/12 px-4 py-12 mx-auto overflow-hidden max-sm:w-full">
       <h1 className="text-4xl font-semibold mb-9">{title}</h1>
 
       {/* Left Scroll Button */}
       {showLeftButton && (
         <button
           onClick={scrollLeft}
-          className="absolute left-0 flex items-center justify-center z-10 h-10 p-2 transform -translate-y-1/2 bg-white border rounded-[100%] aspect-square shadow-md top-1/2 hover:bg-gray-300">
+          className="absolute left-0 flex items-center justify-center z-10 h-10 p-2 transform -translate-y-1/2 bg-white border rounded-[100%] aspect-square shadow-md top-1/2 ">
           <img src={BackwordButtonIcon} alt="Scroll Left" />
         </button>
       )}
@@ -56,7 +56,9 @@ const TitleImageCard = ({ title, products }) => {
             key={index}
             className="min-w-[235px] max-md:w-[190px] max-md:min-w-[190px] max-md:h-[230px] w-[235px] h-[270px] flex flex-col justify-between border border-solid rounded-lg overflow-hidden">
             <div>
-              <h1 className="m-5 text-lg font-semibold max-md:text-base">{product.title}</h1>
+              <h1 className="m-5 text-lg font-semibold max-md:text-base">
+                {product.title}
+              </h1>
             </div>
             <div className="w-full h-[150px] overflow-hidden">
               <img
@@ -73,7 +75,7 @@ const TitleImageCard = ({ title, products }) => {
       {showRightButton && (
         <button
           onClick={scrollRight}
-          className="absolute right-0 flex items-center justify-center z-10 h-10 p-2 transform -translate-y-1/2 bg-white border rounded-[100%] aspect-square shadow-md top-1/2 hover:bg-gray-300">
+          className="absolute right-0 flex items-center justify-center z-10 h-10 p-2 transform -translate-y-1/2 bg-white border rounded-[100%] aspect-square shadow-md top-1/2 ">
           <img src={ForwardButtonIcon} alt="Scroll Right" />
         </button>
       )}
