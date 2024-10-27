@@ -37,7 +37,6 @@ export default function CardTitlePrice({ title, products }) {
                   alt={product.title}
                   className="object-cover w-full h-48"
                 />
-                
               </div>
               <h3 className="mt-2 text-sm font-semibold">{product.title}</h3>
               <p className="flex items-center space-x-1 text-sm font-semibold">

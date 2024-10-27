@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
 export default function CardTitle({ title, products }) {
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const visibleCount = 4; // Number of products visible at a time
 

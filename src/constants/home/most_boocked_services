@@ -52,4 +52,4 @@ const products = [
 
 const title = "Most booked services";
 
-export default {title, products}
+export default { title, products };
