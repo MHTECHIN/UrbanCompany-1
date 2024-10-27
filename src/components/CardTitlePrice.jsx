@@ -1,38 +1,7 @@
 import React, { useState } from "react";
 import { ChevronRight, ChevronLeft, Star, IndianRupee } from "lucide-react";
 
-const products = [
-  {
-    title: "Ac Repair & Services",
-    image: "/ac-app-1.jpeg",
-    
-    isNew: true,
-  },
-  {
-    title: "Washing Machine Repair",
-    image: "/ac-app-2.jpeg",
-    
-  },
-  {
-    title: "Gryser Repair & Services ",
-    image: "/ac-app-3.jpeg",
-    
-  },
-  {
-    title: "Water Purifier Repair & Services",
-    image: "/ac-app-4.jpeg",
-    
-  },
-  {
-    title: "Television Repair",
-    image: "/ac-app-5.jpeg",
-    
-  },
- 
- 
-];
-
-export default function AcAppliances() {
+export default function CardTitlePrice({ title, products }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const visibleCount = 4; // Number of products visible at a time
 
@@ -56,26 +25,29 @@ export default function AcAppliances() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6">AC & Appliances</h2>
+    <div className="container px-4 py-8 mx-auto">
+      <h2 className="mb-6 text-3xl font-bold">{title}</h2>
       <div className="relative">
         <div className="flex space-x-4 overflow-hidden">
           {visibleProducts.map((product, index) => (
             <div key={index} className="flex-shrink-0 w-1/4">
-              <div className="relative rounded-lg overflow-hidden">
+              <div className="relative overflow-hidden rounded-lg">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-48 object-cover"
+                  className="object-cover w-full h-48"
                 />
-                {/* {product.isNew && (
-                  <span className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
-                    NEW
-                  </span>
-                )} */}
+                
               </div>
               <h3 className="mt-2 text-sm font-semibold">{product.title}</h3>
-              
+              <p className="flex items-center space-x-1 text-sm font-semibold">
+                <Star size={15} />
+                {product.rating}
+              </p>
+              <p className="flex items-center space-x-1 text-sm font-semibold">
+                <IndianRupee size={15} />
+                {product.price}
+              </p>
             </div>
           ))}
         </div>
@@ -84,9 +56,8 @@ export default function AcAppliances() {
         {currentIndex > 0 && (
           <button
             onClick={prevSlide}
-            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
-            aria-label="Previous slide"
-          >
+            className="absolute left-0 p-2 transition-colors transform -translate-y-1/2 bg-white rounded-full shadow-md top-1/2 hover:bg-gray-100"
+            aria-label="Previous slide">
             <ChevronLeft className="w-6 h-6" />
           </button>
         )}
@@ -95,9 +66,8 @@ export default function AcAppliances() {
         {currentIndex + visibleCount < products.length && (
           <button
             onClick={nextSlide}
-            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
-            aria-label="Next slide"
-          >
+            className="absolute right-0 p-2 transition-colors transform -translate-y-1/2 bg-white rounded-full shadow-md top-1/2 hover:bg-gray-100"
+            aria-label="Next slide">
             <ChevronRight className="w-6 h-6" />
           </button>
         )}
