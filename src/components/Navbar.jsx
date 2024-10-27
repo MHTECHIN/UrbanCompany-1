@@ -6,10 +6,12 @@ import {
   ChevronDown,
   MapPin,
   X,
+  Menu,
 } from "lucide-react";
 
 const Navbar = () => {
   const [isLocationPopupOpen, setIsLocationPopupOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(
     "Connaught Place, New ..."
   );
@@ -17,9 +19,9 @@ const Navbar = () => {
 
   const handleOpenLocationPopup = () => setIsLocationPopupOpen(true);
   const handleCloseLocationPopup = () => setIsLocationPopupOpen(false);
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handleUseCurrentLocation = () => {
-    // In a real implementation, you would use the Geolocation API here
     console.log("Using current location");
     setSelectedLocation("Current Location");
     handleCloseLocationPopup();
@@ -27,7 +29,6 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // In a real implementation, you would integrate with Google Places API here
     console.log("Searching for:", searchQuery);
     setSelectedLocation(searchQuery);
     handleCloseLocationPopup();
@@ -43,7 +44,7 @@ const Navbar = () => {
             width={100}
             height={100}
           />
-          <nav className="hidden md:flex space-x-4">
+          <nav className="hidden lg:flex space-x-4">
             <a href="#" className="text-gray-600 hover:text-gray-900">
               Beauty
             </a>
@@ -58,15 +59,15 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           <button
             onClick={handleOpenLocationPopup}
-            className="hidden md:flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-900">
+            className="hidden lg:flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-900">
             <MapPin size={16} />
             <span>{selectedLocation}</span>
             <ChevronDown size={16} />
           </button>
-          <div className="relative">
+          <div className="relative hidden lg:block">
             <input
               type="text"
-              placeholder="Search for" //typing effect need to add
+              placeholder="Search for"
               className="pl-8 pr-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <Search
@@ -74,10 +75,49 @@ const Navbar = () => {
               size={20}
             />
           </div>
-          <ShoppingCart className="text-gray-600" size={24} />
-          <User className="text-gray-600" size={24} />
+          <ShoppingCart className="text-gray-600 hidden lg:block" size={24} />
+          <User className="text-gray-600 hidden lg:block" size={24} />
+          {/* Mobile Menu Toggle - Visible below 1024px */}
+          <button onClick={toggleMobileMenu} className="lg:hidden">
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden px-4 py-2 border-t bg-white">
+          <nav className="flex flex-col space-y-2">
+            <a href="#" className="text-gray-600 hover:text-gray-900">
+              Beauty
+            </a>
+            <a href="#" className="text-gray-600 hover:text-gray-900">
+              Homes
+            </a>
+            <a href="#" className="text-gray-600 hover:text-gray-900">
+              Native
+            </a>
+          </nav>
+          <button
+            onClick={handleOpenLocationPopup}
+            className="flex items-center space-x-2 text-sm text-gray-600 hover:text-gray-900 mt-4">
+            <MapPin size={16} />
+            <span>{selectedLocation}</span>
+            <ChevronDown size={16} />
+          </button>
+          <div className="relative mt-4">
+            <input
+              type="text"
+              placeholder="Search for"
+              className="pl-8 pr-4 py-2 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <Search
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400"
+              size={20}
+            />
+          </div>
+        </div>
+      )}
 
       {isLocationPopupOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -111,7 +151,7 @@ const Navbar = () => {
               </button>
             </div>
             <div className="p-4 border-t text-center text-sm text-gray-500">
-              {/*  */}
+              {/* Additional Info */}
             </div>
           </div>
         </div>
