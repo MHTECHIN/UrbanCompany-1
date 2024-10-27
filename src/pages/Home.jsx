@@ -6,7 +6,7 @@ import Poster from "../components/Poster";
 import ac_and_appliances from "../constants/home/ac_and_appliances";
 import cleaning_pest from "../constants/home/cleaning_pest";
 import massage_for_men from "../constants/home/massage_for_men";
-import most_boocked_services from "../constants/home/most_boocked_services";
+import most_booked_services from "../constants/home/most_booked_services";
 import note_worthy from "../constants/home/note_worthy";
 import quick_home_repairs from "../constants/home/quick_home_repairs";
 import saloon_for_kids from "../constants/home/saloon_for_kids";
@@ -23,8 +23,8 @@ export default function HomePage() {
       <Slider />
       <CardTitle title={note_worthy.title} products={note_worthy.products} />
       <CardTitlePrice
-        title={most_boocked_services.title}
-        products={most_boocked_services.products}
+        title={most_booked_services.title}
+        products={most_booked_services.products}
       />
       <Poster src={"/smartlockposter.webp"} />
       <TitleImageCard
