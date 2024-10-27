@@ -60,7 +60,7 @@ const TitleImageCard = ({ title, products }) => {
                 {product.title}
               </h1>
             </div>
-            <div className="w-full h-[150px] overflow-hidden">
+            <div className="w-full overflow-hidden h-fit">
               <img
                 src={product.imageUrl}
                 alt={product.title}

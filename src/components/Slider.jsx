@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
@@ -12,77 +12,96 @@ const slides = [
   },
   {
     id: 3,
-    image: "/elevate.webp",
-  },
-  {
-    id: 4,
     image: "/saveonelectric.webp",
   },
   {
-    id: 5,
+    id: 4,
     image: "/elevatewedding.webp",
   },
   {
-    id: 6,
+    id: 5,
     image: "/relaxathome.webp",
   },
   {
-    id: 7,
+    id: 6,
     image: "/experthaircut.webp",
   },
   {
-    id: 8,
+    id: 7,
     image: "/homerepairs.webp",
   },
 ];
 
 const ImageSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slidesToShow = 3; // Show 3 cards at a time
+  const scrollRef = useRef(null);
+  const [showLeftButton, setShowLeftButton] = useState(false);
+  const [showRightButton, setShowRightButton] = useState(true);
 
-  const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide + slidesToShow < slides.length ? prevSlide + slidesToShow : 0
-    );
+  const updateButtonVisibility = () => {
+    const scrollElement = scrollRef.current;
+    const isScrolledToLeft = scrollElement.scrollLeft === 0;
+    const isScrolledToRight =
+      scrollElement.scrollWidth - scrollElement.clientWidth ===
+      scrollElement.scrollLeft;
+
+    setShowLeftButton(!isScrolledToLeft);
+    setShowRightButton(!isScrolledToRight);
   };
 
-  const handlePrevSlide = () => {
-    setCurrentSlide((prevSlide) =>
-      prevSlide === 0 ? slides.length - slidesToShow : prevSlide - slidesToShow
-    );
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -450, behavior: "smooth" });
   };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 450, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const scrollElement = scrollRef.current;
+    updateButtonVisibility();
+
+    scrollElement.addEventListener("scroll", updateButtonVisibility);
+    return () =>
+      scrollElement.removeEventListener("scroll", updateButtonVisibility);
+  }, []);
 
   return (
-    <div className="relative mt-28 w-full max-w-6xl m-auto  overflow-hidden">
+    <div className="relative w-11/12 max-sm:w-[98%] m-auto overflow-hidden max-w-7xl mt-28">
+      {/* Left Scroll Button */}
+      {showLeftButton && (
+        <button
+          className="absolute z-10 p-2 transform -translate-y-1/2 bg-white rounded-full shadow left-4 top-1/2 hover:bg-gray-100"
+          onClick={scrollLeft}
+          aria-label="Scroll Left">
+          <ChevronLeft size={24} />
+        </button>
+      )}
+
       <div
-        className="flex transition-transform duration-500"
-        style={{
-          transform: `translateX(-${(currentSlide / slidesToShow) * 90}%)`,
-        }}>
+        ref={scrollRef}
+        className="flex overflow-x-scroll transition-transform duration-500 scrollbar-hide">
         {slides.map((slide) => (
           <div
             key={slide.id}
-            className="min-w-[calc(100%/4)]  h-64 sm:h-72 lg:h-96 flex-shrink-0 p-2">
+            className="min-w-[calc(100%/4)] h-fit flex-shrink-0 p-2">
             <img
               src={slide.image}
               alt={`Slide ${slide.id}`}
-              className="w-full  h-[14rem] object-cover rounded-lg hover:scale-105 transition-all"
+              className="w-full h-[14rem] max-lg:h-[12rem] max-sm:h-[10rem] object-cover rounded-lg hover:scale-105 transition-all"
             />
           </div>
         ))}
       </div>
 
-      {/* Navigation Buttons */}
-      <button
-        className="absolute left-4 top-1/3 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-        onClick={handlePrevSlide}>
-        <ChevronLeft size={24} />
-      </button>
-      <button
-        className="absolute right-4 top-1/3 transform -translate-y-1/2 bg-white p-2 rounded-full shadow"
-        onClick={handleNextSlide}>
-        <ChevronRight size={24} />
-      </button>
+      {/* Right Scroll Button */}
+      {showRightButton && (
+        <button
+          className="absolute z-10 p-2 transform -translate-y-1/2 bg-white rounded-full shadow right-4 top-1/2 hover:bg-gray-100"
+          onClick={scrollRight}
+          aria-label="Scroll Right">
+          <ChevronRight size={24} />
+        </button>
+      )}
     </div>
   );
 };
