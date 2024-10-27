@@ -11,7 +11,7 @@ const MasageForMen = () => {
     <div className="container mx-auto px-4 py-12">
       <h1 className="font-semibold text-4xl mb-9">Massage for men</h1>
       <p>Curated massages by top therapists.</p>
-      <div className="flex flex-wrap ">
+      <div className="md:flex md:flex-wrap grid grid-cols-2 ">
         {cards.map((card, index) => (
           <div key={index} className="w-full md:w-1/5 p-2 ">
             <h2 className="text-lg font-semibold">{card.title}</h2>

@@ -12,7 +12,7 @@ const SaloonWomen = () => {
   return (
     <div className="container mx-auto px-4 py-12">
         <h1 className='font-semibold text-4xl mb-9'>Saloon for Women</h1>
-      <div className="flex flex-wrap justify-between">
+      <div className="md:flex md:flex-wrap grid grid-cols-2 justify-between">
         {cards.map((card, index) => (
           <div key={index} className="w-full md:w-1/5 p-2">
              <h2 className="text-lg font-semibold">{card.title}</h2>
